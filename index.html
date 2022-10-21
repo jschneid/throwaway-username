@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Throwaway Username</title>
+  <link href="gangnam.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<!--
+    Hello there 👋! Thanks for checking out this source code!
+
+    If you'd like to use this code on your own site or app, please first drop me a line at: throwawayusername[at]jonschneider.com.
+
+    Have a great day! :-)
+
+    Source code written by Jonathan Schneider and copyright 2016-2022 Aggro Magnet Games LLC
+-->
+
+<body>
+    <script>0</script> <!-- Fix Firefox "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content." -->
+    
+    <div class="centered">
+        <h1>Throwaway Username</h1>
+        <div>
+            <p>
+                Your Throwaway Username is:
+            </p>
+            <p class="lead">
+                <span class="username" id="username"></span>
+            </p>
+            <p>
+                <button class="copy-button btn btn-primary" data-clipboard-target="#username">Copy to clipboard</button>
+                <button class="switch-button btn btn-secondary" onclick="switchUsername()">Give me a different one</button>
+            </p>
+        </div>
+    </div>
+    <div>
+        <fieldset class="border p-2">
+            <legend class="float-none w-auto p-2">Options</legend>
+                <label><input type="checkbox" id="prefix"> Add "Throwaway" prefix</label><br />
+                <label><input type="checkbox" id="suffix"> Add "throwaway" suffix</label><br />
+                Separator: <select id="separator">
+                    <option value="-">-</option>
+                    <option value="_">_</option>
+                    <option value="">(none)</option>
+                </select>
+        </fieldset>
+    </div>
+
+    <div id="success-notification">Username Copied!</div>
+
+    <script src="clipboard.min.js"></script>
+    <script src="jquery-3.6.1.min.js"></script>
+ 
+    <script>
+        let hideTimer;
+
+        const nouns = ['world','map','family','health','system','year','music','reading','method','data','food','theory','law','bird','literature','knowledge','power','ability','internet','television','science','library','nature','fact','product','idea','temperature','investment','area','society','activity','story','industry','media','thing','oven','community','definition','safety','quality','development','language','player','variety','country','movie','equipment','thought','basis','direction','strategy','technology','army','camera','freedom','paper','instance','month','truth','university','writing','article','department','difference','goal','ruby','audience','fishing','growth','income','marriage','user','combination','failure','meaning','medicine','philosophy','teacher','communication','night','chemistry','disk','energy','nation','road','soup','advertising','location','success','addition','apartment','education','math','moment','painting','politics','attention','decision','event','property','shopping','student','tree','competition','distribution','entertainment','office','population','president','unit','category','context','performance','driver','flight','length','magazine','newspaper','relationship','teaching','cell','sapphire','message','phone','scene','appearance','association','concept','customer','discussion','housing','inflation','insurance','mood','advice','effort','expression','importance','opinion','payment','reality','responsibility','situation','skill','statement','wealth','application','city','county','depth','estate','foundation','grandmother','heart','perspective','photo','recipe','studio','topic','collection','depression','imagination','passion','percentage','resource','setting','ad','agency','college','connection','criticism','debt','description','memory','patience','secretary','solution','administration','aspect','attitude','director','personality','psychology','recommendation','response','selection','storage','version','alcohol','argument','complaint','contract','emphasis','highway','membership','possession','preparation','steak','agreement','currency','employment','engineering','interaction','mixture','preference','region','republic','tradition','actor','classroom','delivery','device','difficulty','drama','election','engine','football','guidance','hotel','owner','priority','protection','suggestion','variation','atmosphere','awareness','bath','bread','candidate','climate','comparison','confusion','construction','elevator','emotion','guest','height','leadership','mall','operation','recording','sample','charity','disaster','editor','efficiency','excitement','extent','feedback','guitar','homework','leader','outcome','permission','presentation','promotion','reflection','refrigerator','resolution','revenue','session','tennis','basket','bonus','cabinet','clothes','coffee','dinner','drawing','hair','hearing','initiative','judgment','lab','mode','mud','poetry','police','possibility','procedure','queen','ratio','relation','restaurant','signature','song','tooth','town','vehicle','volume','accident','airport','appointment','arrival','assumption','baseball','chapter','committee','conversation','database','enthusiasm','explanation','farmer','gate','hall','historian','hospital','injury','instruction','maintenance','manufacturer','meal','perception','pie','poem','presence','proposal','reception','replacement','revolution','river','speech','tea','village','warning','winner','writer','assistance','breath','chest','chocolate','conclusion','contribution','cookie','courage','desk','drawer','grocery','insect','inspection','inspector','king','ladder','menu','penalty','piano','potato','profession','professor','quantity','reaction','requirement','salad','supermarket','weakness','ambition','analyst','apple','beer','birthday','celebration','championship','cheek','client','consequence','departure','diamond','dirt','ear','fortune','friendship','funeral','hat','indication','intention','midnight','negotiation','obligation','passenger','pizza','platform','poet','recognition','reputation','shirt','speaker','stranger','sympathy','tale','trainer','film','water','money','while','business','study','game','life','air','day','place','number','part','field','fish','back','process','heat','hand','experience','job','book','end','point','type','home','economy','value','body','market','guide','interest','state','radio','course','company','price','size','card','list','mind','trade','line','group','word','force','key','light','training','name','school','top','amount','level','order','practice','research','sense','service','web','boss','sport','fun','house','page','term','test','answer','sound','focus','soil','board','picture','access','garden','range','rate','reason','future','site','demand','exercise','image','case','cause','coast','action','age','bad','boat','record','result','section','building','mouse','cash','class','nothing','period','plan','store','tax','side','subject','space','rule','stock','weather','chance','figure','source','beginning','earth','program','chicken','design','feature','head','material','purpose','question','rock','salt','act','birth','car','dog','object','scale','sun','note','profit','rent','speed','style','bank','craft','half','standard','bus','exchange','eye','fire','position','pressure','stress','advantage','benefit','box','frame','issue','step','cycle','face','item','metal','paint','review','room','screen','structure','view','account','ball','discipline','medium','share','balance','bit','bottom','choice','gift','impact','machine','shape','tool','wind','address','average','career','culture','morning','pot','sign','table','task','credit','egg','hope','ice','network','north','square','effect','link','post','star','voice','capital','challenge','friend','self','brush','couple','debate','exit','front','function','lack','living','plant','plastic','spot','summer','taste','theme','track','wing','brain','button','click','desire','foot','gas','influence','notice','rain','wall','base','distance','pair','sugar','text','animal','author','budget','discount','file','ground','lesson','minute','officer','phase','reference','register','sky','stage','stick','title','trouble','bowl','bridge','campaign','character','club','edge','fan','letter','lock','maximum','novel','option','pack','park','plenty','quarter','background','dish','factor','glass','vegetable','calendar','coat','cup','door','hook','cake','holiday','horse','mountain','golfer','chair','sandwich','bottle','candle','flower','bug','cat','wish','bear'];
+        const adjectives = ['intelligent','nice','pleasant','tempered','distracted','discreet','cheeky','cheerful','energetic','untidy','optimistic','talkative','calm','passionate','proud','sincere','lively','funny','silly','shy','determined','versatile','sociable','worried','thoughtful','humble','friendly','frank','obedient','honest','fearless','unfriendly','generous','compassionate','warmhearted','straightforward','imaginative','placid','helpful','enthusiastic','persistent','sensible','rational','reserved','disciplined','plucky','patient','easygoing','messy','creative','working','faithful','kind','courageous','loyal','modest','tidy','confident','attentive','reliable','conscientious','careful','gentle','neat','dynamic','impartial','supportive','intellectual','brave','ambitious','polite','happy','diplomatic','courteous','humorous','popular','smart','serious','adventurous','happy','amused','confident','cold','surprised','curious','indifferent','sorry','determined','bashful','interested','hopeful','regretful','stubborn','proud','ecstatic','thoughtful','optimistic','relieved','puzzled','joyful','sleepy','excited','skeptical'];
+
+        $(function () {
+            switchUsername();
+
+            const clipboard = new ClipboardJS('.copy-button');
+            clipboard.on('success', function (e) {
+                showSuccessNotification();
+                e.clearSelection();
+            });
+
+            $('.switch-button').click(function() {
+                switchUsername();
+            });
+        });
+
+        function showSuccessNotification() {
+            clearTimeout(hideTimer);
+            $('#success-notification').fadeIn();
+            hideTimer = setTimeout(function () { $('#success-notification').fadeOut(); }, 2000);
+        }
+
+        function switchUsername() {
+            const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+            const randomNoun = capitalizeFirstLetter(nouns[Math.floor(Math.random() * nouns.length)]);
+            const randomInt = randomIntFromInterval(1000500, 9999000);
+
+            let newName = randomAdjective + randomNoun + randomInt;
+
+
+            const separator = $('#separator').val();
+            if ($('#prefix').prop('checked')) {
+                newName = 'Throwaway' + separator + newName;
+            }
+            if ($('#suffix').prop('checked')) {
+                newName += separator + 'throwaway';
+            }
+            
+            $('#username').html(newName);
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function randomIntFromInterval(min, max) { 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }   
+    </script>
+</body>
+</html>

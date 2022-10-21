@@ -1,0 +1,47 @@
+body 
+{
+    max-width: 900px;
+    margin: auto;
+    font-size: 13pt;
+    padding-left: 8px;
+    padding-right: 8px;
+    
+	color: #000000;
+	font-family: Helvetica, Arial, sans-serif;
+    background-color: #f2f8ff;
+    padding-bottom: 70px; /* for footer */
+    margin: 0 auto;
+}
+
+.copyButton
+{
+    font-size: 48px;
+    margin-bottom:5px;
+    color: #333333;
+    background-color: #fafdff;
+    border: solid 1px #bbbbbb;
+    text-decoration: none;
+    font-family: "Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji","Arial Unicode MS","Arial Unicode",Times,Symbola,Aegyptus,Code2000,Code2001,Code2002,Musica,serif;
+}
+
+#success-notification {
+    font-family: "Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji","Arial Unicode MS","Arial Unicode",Times,Symbola,Aegyptus,Code2000,Code2001,Code2002,Musica,serif;
+    font-size: 24px;
+    display: none;
+    min-width: 150px;
+    margin-left: -75px; /* half of min-width */
+    background-color: #333333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    z-index: 2000; /* Above the footer */
+}
+
+.centered
+{
+    text-align: center;
+}
