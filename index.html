@@ -38,8 +38,8 @@
     <div>
         <fieldset class="border p-2">
             <legend class="float-none w-auto p-2">Options</legend>
-                <label><input type="checkbox" id="prefix"> Add "Throwaway" prefix</label><br />
-                <label><input type="checkbox" id="suffix"> Add "throwaway" suffix</label><br />
+                <label><input type="checkbox" id="prefix"> <span id="prefix-label"></span></label><br />
+                <label><input type="checkbox" id="suffix"> <span id="suffix-label"></span></label><br />
                 Separator: <select id="separator">
                     <option value="-">-</option>
                     <option value="_">_</option>
@@ -61,6 +61,7 @@
 
         $(function () {
             switchUsername();
+            updateOptionsText();
 
             const clipboard = new ClipboardJS('.copy-button');
             clipboard.on('success', function (e) {
@@ -70,6 +71,10 @@
 
             $('.switch-button').click(function() {
                 switchUsername();
+            });
+
+            $('#separator').on('change', () => {
+                updateOptionsText();
             });
         });
 
@@ -85,7 +90,6 @@
             const randomInt = randomIntFromInterval(1000500, 9999000);
 
             let newName = randomAdjective + randomNoun + randomInt;
-
 
             const separator = $('#separator').val();
             if ($('#prefix').prop('checked')) {
@@ -105,6 +109,13 @@
         function randomIntFromInterval(min, max) { 
             return Math.floor(Math.random() * (max - min + 1) + min)
         }   
+
+        function updateOptionsText() {
+            const separator = $('#separator').val();
+
+            $('#prefix-label').html(`Add "Throwaway${separator}" prefix`);
+            $('#suffix-label').html(`Add "${separator}throwaway" suffix`);
+        }
     </script>
 </body>
 </html>
