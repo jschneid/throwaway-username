@@ -29,15 +29,15 @@
             Your throwaway username is:
         </p>
         <div>
-            <button class="btn btn-outline-dark btn-lg copy-button">
+            <button class="btn btn-outline-dark btn-lg copy-button" id="copy-button">
                 <span class="username" id="username"></span>
             </button>
             <br />
-            <span><span>👆</span> Click to clipboard copy</span>
+            <span><span class="emoji">⬆</span> Click to clipboard copy</span>
         </div>
 
         <p class="mt-5">
-            <button class="switch-button btn btn-secondary" onclick="switchUsername()">Nope, give me a different one</button>
+            <button class="switch-button btn btn-secondary" id="switch-button" onclick="switchUsername()">Nope, give me a different one</button>
         </p>
     </div>
     <div>
@@ -69,11 +69,6 @@
 
     <div id="success-notification"></div>
 
-    <footer class="footer navbar">
-        <div class="container-fluid fixed-bottom text-center">
-            Footer
-        </div>
-    </footer>
 
     <script src="clipboard.min.js"></script>
     <script src="jquery-3.6.1.min.js"></script>

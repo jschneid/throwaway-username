@@ -1,3 +1,8 @@
+html
+{
+    height: 100%;
+}
+
 body 
 {
     max-width: 900px;
@@ -11,17 +16,30 @@ body
     background-color: #f2f8ff;
     padding-bottom: 70px; /* for footer */
     margin: 0 auto;
+
+    background: linear-gradient(to bottom right, #F2CA2C, #CCA43E);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.copyButton
+.emoji
 {
-    font-size: 48px;
-    margin-bottom:5px;
-    color: #333333;
-    background-color: #fafdff;
-    border: solid 1px #bbbbbb;
-    text-decoration: none;
-    font-family: "Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji","Arial Unicode MS","Arial Unicode",Times,Symbola,Aegyptus,Code2000,Code2001,Code2002,Musica,serif;
+    font-size: 20px;
+}
+
+#copy-button
+{
+    font-size: 36px;
+    color: #f8f9fa;
+    background-color: #1D809F;
+}
+
+#switch-button
+{
+    color: #fafdff;
+    background-color: #343741;
 }
 
 #success-notification {
