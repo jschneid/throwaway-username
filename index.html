@@ -23,16 +23,20 @@
     <div class="centered">
         <h1>Throwaway Username</h1>
         <p>
-            For when you want the computer to choose your throwaway username for you.
+            For when you want a website to choose your throwaway username for you.
         </p>
         <p>
-            Your Throwaway Username is:
+            Your throwaway username is:
         </p>
-        <p class="lead">
-            <span class="username" id="username"></span>
-        </p>
-        <p>
-            <button class="copy-button btn btn-primary" data-clipboard-target="#username">Copy to clipboard</button>
+        <div>
+            <button class="btn btn-outline-dark btn-lg copy-button">
+                <span class="username" id="username"></span>
+            </button>
+            <br />
+            <span>Click to copy to clipboard</span>
+        </div>
+
+        <p class="mt-5">
             <button class="switch-button btn btn-secondary" onclick="switchUsername()">Give me a different one</button>
         </p>
     </div>
@@ -49,10 +53,11 @@
                         </select>
                     </div>
                     <div class="col-6">
-                        Separator: <select id="separator">
+                        Separator: 
+                        <select id="separator">
+                            <option value="">(none)</option>
                             <option value="-">-</option>
                             <option value="_">_</option>
-                            <option value="">(none)</option>
                         </select>
                     </div>
                 </div>
@@ -134,6 +139,7 @@
             }
             
             $('#username').html(username);
+            $('.copy-button').attr('data-clipboard-text', username);
         }
 
         function camelCaseWord(words) {
