@@ -38,13 +38,22 @@
     <div>
         <fieldset class="border p-2">
             <legend class="float-none w-auto p-2">Options</legend>
-                <label><input type="checkbox" id="prefix"> <span id="prefix-label"></span></label><br />
-                <label><input type="checkbox" id="suffix"> <span id="suffix-label"></span></label><br />
-                Separator: <select id="separator">
-                    <option value="-">-</option>
-                    <option value="_">_</option>
-                    <option value="">(none)</option>
-                </select>
+                <div class="row">
+                    <div class="col-6">
+                        <label><input type="checkbox" class="checkbox" id="prefix"> <span id="prefix-label"></span></label><br />
+                        <label><input type="checkbox" class="checkbox" id="suffix"> <span id="suffix-label"></span></label><br />
+                    </div>
+                    <div class="col-6">
+                        Separator: <select id="separator">
+                            <option value="-">-</option>
+                            <option value="_">_</option>
+                            <option value="">(none)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                </div>
         </fieldset>
     </div>
 
@@ -64,16 +73,21 @@
             updateOptionsText();
 
             const clipboard = new ClipboardJS('.copy-button');
-            clipboard.on('success', function (e) {
+            clipboard.on('success', (e) => {
                 showSuccessNotification();
                 e.clearSelection();
             });
 
-            $('.switch-button').click(function() {
+            $('.switch-button').click(() => {
                 switchUsername();
             });
 
+            $('.checkbox').on('change', () => {
+                updateUsername();
+            });
+
             $('#separator').on('change', () => {
+                updateUsername();
                 updateOptionsText();
             });
         });
@@ -84,22 +98,30 @@
             hideTimer = setTimeout(function () { $('#success-notification').fadeOut(); }, 2000);
         }
 
-        function switchUsername() {
-            const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-            const randomNoun = capitalizeFirstLetter(nouns[Math.floor(Math.random() * nouns.length)]);
-            const randomInt = randomIntFromInterval(1000500, 9999000);
+        let adjective;
+        let noun;
+        let integer;
 
-            let newName = randomAdjective + randomNoun + randomInt;
+        function switchUsername() {
+            adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+            noun = capitalizeFirstLetter(nouns[Math.floor(Math.random() * nouns.length)]);
+            integer = randomIntFromInterval(1000500, 9999000);
+
+            updateUsername();
+        }
+
+        function updateUsername() {
+            let username = adjective + noun + integer;
 
             const separator = $('#separator').val();
             if ($('#prefix').prop('checked')) {
-                newName = 'Throwaway' + separator + newName;
+                username = 'Throwaway' + separator + username;
             }
             if ($('#suffix').prop('checked')) {
-                newName += separator + 'throwaway';
+                username += separator + 'throwaway';
             }
             
-            $('#username').html(newName);
+            $('#username').html(username);
         }
 
         function capitalizeFirstLetter(string) {
