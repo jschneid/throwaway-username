@@ -22,26 +22,31 @@
     
     <div class="centered">
         <h1>Throwaway Username</h1>
-        <div>
-            <p>
-                Your Throwaway Username is:
-            </p>
-            <p class="lead">
-                <span class="username" id="username"></span>
-            </p>
-            <p>
-                <button class="copy-button btn btn-primary" data-clipboard-target="#username">Copy to clipboard</button>
-                <button class="switch-button btn btn-secondary" onclick="switchUsername()">Give me a different one</button>
-            </p>
-        </div>
+        <p>
+            For when you want the computer to choose your throwaway username for you.
+        </p>
+        <p>
+            Your Throwaway Username is:
+        </p>
+        <p class="lead">
+            <span class="username" id="username"></span>
+        </p>
+        <p>
+            <button class="copy-button btn btn-primary" data-clipboard-target="#username">Copy to clipboard</button>
+            <button class="switch-button btn btn-secondary" onclick="switchUsername()">Give me a different one</button>
+        </p>
     </div>
     <div>
         <fieldset class="border p-2">
             <legend class="float-none w-auto p-2">Options</legend>
                 <div class="row">
                     <div class="col-6">
-                        <label><input type="checkbox" class="checkbox" id="prefix"> <span id="prefix-label"></span></label><br />
-                        <label><input type="checkbox" class="checkbox" id="suffix"> <span id="suffix-label"></span></label><br />
+                        Include "throwaway"
+                        <select id="throwaway">
+                            <option value="none">nowhere</option>
+                            <option value="prefix">prefix</option>
+                            <option value="suffix">suffix</option>
+                        </select>
                     </div>
                     <div class="col-6">
                         Separator: <select id="separator">
@@ -52,7 +57,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    
+
                 </div>
         </fieldset>
     </div>
@@ -70,7 +75,6 @@
 
         $(function () {
             switchUsername();
-            updateOptionsText();
 
             const clipboard = new ClipboardJS('.copy-button');
             clipboard.on('success', (e) => {
@@ -82,13 +86,12 @@
                 switchUsername();
             });
 
-            $('.checkbox').on('change', () => {
+            $('#throwaway').on('change', () => {
                 updateUsername();
             });
 
             $('#separator').on('change', () => {
                 updateUsername();
-                updateOptionsText();
             });
         });
 
@@ -104,40 +107,69 @@
 
         function switchUsername() {
             adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-            noun = capitalizeFirstLetter(nouns[Math.floor(Math.random() * nouns.length)]);
+            noun = nouns[Math.floor(Math.random() * nouns.length)];
             integer = randomIntFromInterval(1000500, 9999000);
 
             updateUsername();
         }
 
         function updateUsername() {
-            let username = adjective + noun + integer;
+            words = [adjective, noun, integer];
 
-            const separator = $('#separator').val();
-            if ($('#prefix').prop('checked')) {
-                username = 'Throwaway' + separator + username;
+            const throwaway = $('#throwaway').val();
+            if (throwaway === 'prefix') {
+                words.unshift('throwaway');
             }
-            if ($('#suffix').prop('checked')) {
-                username += separator + 'throwaway';
+            else if (throwaway === 'suffix') {
+                words.push('throwaway');
+            }
+
+            let username;
+            const separator = $('#separator').val();
+            if (separator === '') {
+                username = camelCaseWord(words);
+            }
+            else {
+                username = separatedCaseWord(words, separator);
             }
             
             $('#username').html(username);
         }
 
+        function camelCaseWord(words) {
+            let camelCaseWord = '';
+            for (let i = 0; i < words.length; i++) {
+                let word = words[i];
+                if (i > 0) {
+                    word = capitalizeFirstLetter(word);
+                }
+                camelCaseWord += word;
+            }
+            return camelCaseWord;
+        }
+
+        function separatedCaseWord(words, separator) {
+            let separatedCaseWord = '';
+            for (let i = 0; i < words.length; i++) {
+                separatedCaseWord += words[i];
+                if (i < words.length - 1) {
+                    separatedCaseWord += separator;
+                }
+            }
+            return separatedCaseWord;
+        }
+
         function capitalizeFirstLetter(string) {
+            if (typeof string !== 'string') {
+                return string;
+            }
+
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
         function randomIntFromInterval(min, max) { 
             return Math.floor(Math.random() * (max - min + 1) + min)
         }   
-
-        function updateOptionsText() {
-            const separator = $('#separator').val();
-
-            $('#prefix-label').html(`Add "Throwaway${separator}" prefix`);
-            $('#suffix-label').html(`Add "${separator}throwaway" suffix`);
-        }
     </script>
 </body>
 </html>
