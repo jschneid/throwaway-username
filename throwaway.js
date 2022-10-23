@@ -36,6 +36,7 @@ function populateSubtitle() {
         'For when you\'re feeling more anonymous than decisive.',
         'For when you\'re saving your creativity for your post, not the new user registration form.',
         'For when it\'s time to use a random adjective, noun, and number as your temporary online identity.',
+        'For when you need a username that\'s guaranteed<sup>*</sup> to be unique. <small>(* Uniqueness not guaranteed)</small>',
     ];
 
     const tagline = taglines[randomIntFromInterval(0, taglines.length - 1)];
