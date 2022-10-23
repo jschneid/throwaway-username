@@ -53,7 +53,7 @@ function switchUsername() {
 
     adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     noun = nouns[Math.floor(Math.random() * nouns.length)];
-    integer = randomIntFromInterval(1000500, 9999000);
+    integer = randomIntFromInterval(10, 99);
 
     updateUsername();
 }
