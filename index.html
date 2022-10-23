@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>Throwaway Username</title>
+
+  <meta name="description" content="Generates a throwaway username for you. Copy it to your clipboard with a single click."/>
+
   <link href="gangnam.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
@@ -14,7 +17,7 @@
 
     Have a great day! :-)
 
-    Source code written by Jonathan Schneider and copyright 2016-2022 Aggro Magnet Games LLC
+    Source code written by Jonathan Schneider and copyright 2022 Aggro Magnet Games LLC.
 -->
 
 <body>
@@ -36,7 +39,7 @@
             </button>
         </div>
         <div>
-            <span><span class="emoji">⬆ </span>Click to clipboard copy
+            <span class="emoji">⬆ </span>Click to clipboard copy
         </div>
 
         <p class="mt-5">
@@ -46,27 +49,24 @@
     <div>
         <fieldset class="border border-dark border-2 p-2 constrain-width">
             <legend class="float-none w-auto p-2">Options</legend>
-                <div class="row">
-                    <div class="col-sm-6">
-                        Include "Throwaway":
-                        <select id="throwaway">
-                            <option value="none">Nowhere at all</option>
-                            <option value="prefix">At the beginning</option>
-                            <option value="suffix">At the end</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        Word Separator: 
-                        <select id="separator">
-                            <option value="">None, smash it all together</option>
-                            <option value="-">Hyphen - (I like kebabs)</option>
-                            <option value="_">Underscore _ (I like snakes...?)</option>
-                        </select>
-                    </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    Include "Throwaway":
+                    <select id="throwaway">
+                        <option value="none">Nowhere at all</option>
+                        <option value="prefix">At the beginning</option>
+                        <option value="suffix">At the end</option>
+                    </select>
                 </div>
-                <div class="row">
-
+                <div class="col-sm-6">
+                    Word Separator: 
+                    <select id="separator">
+                        <option value="">None, smash it all together</option>
+                        <option value="-">Hyphen - (I like kebabs)</option>
+                        <option value="_">Underscore _ (I like snakes...?)</option>
+                    </select>
                 </div>
+            </div>
         </fieldset>
     </div>
 
