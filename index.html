@@ -20,7 +20,9 @@
 <body>
     <script>0</script> <!-- Fix Firefox "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content." -->
     
-    <div class="centered">
+    <div class="d-none d-md-block top-padding"></div>
+
+    <div class="centered mt-5">
         <h1>Throwaway Username</h1>
         <p>
             For when you want a website to choose your new throwaway username for you.
@@ -28,10 +30,12 @@
         <p>
             Your throwaway username is:
         </p>
-        <div>
+        <div class="copy-button-container">
             <button class="btn btn-outline-dark btn-lg copy-button" id="copy-button">
                 <span class="username" id="username"></span>
             </button>
+        </div>
+        <div>
             <br />
             <span><span class="emoji">⬆</span> Click to clipboard copy</span>
         </div>
@@ -41,7 +45,7 @@
         </p>
     </div>
     <div>
-        <fieldset class="border p-2">
+        <fieldset class="border p-2 constrain-width">
             <legend class="float-none w-auto p-2">Options</legend>
                 <div class="row">
                     <div class="col-sm-6">

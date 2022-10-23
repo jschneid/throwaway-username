@@ -1,12 +1,11 @@
 html
 {
     height: 100%;
+    margin: 0 auto;
 }
 
 body 
 {
-    max-width: 900px;
-    margin: auto;
     font-size: 13pt;
     padding-left: 8px;
     padding-right: 8px;
@@ -15,18 +14,32 @@ body
 	font-family: Helvetica, Arial, sans-serif;
     background-color: #f2f8ff;
     padding-bottom: 70px; /* for footer */
-    margin: 0 auto;
 
     background: linear-gradient(to bottom right, #F2CA2C, #CCA43E);
     height: 100%;
-    margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.top-padding
+{
+    height: 100px;
 }
 
 .emoji
 {
     font-size: 20px;
+}
+
+.copy-button-container
+{
+    background-size: cover;
+    background-position: center;
+    background-image: url('spiral_oval.png');
+    padding: 999px;
+    margin: -999px; /* allow background image to exceed div bounds */
+    background-size: 2200px;
+    background-repeat: no-repeat;
 }
 
 #copy-button
@@ -62,4 +75,10 @@ body
 .centered
 {
     text-align: center;
+}
+
+.constrain-width
+{
+    max-width: 900px;
+    margin: 0 auto;
 }
