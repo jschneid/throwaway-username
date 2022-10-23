@@ -38,8 +38,7 @@
             </button>
         </div>
         <div>
-            <br />
-            <span><span class="emoji">⬆</span> Click to clipboard copy</span>
+            <span><span class="emoji">⬆ </span>Click to clipboard copy
         </div>
 
         <p class="mt-5">
@@ -62,8 +61,8 @@
                         Word Separator: 
                         <select id="separator">
                             <option value="">None, smash it all together</option>
-                            <option value="-">Hyphen -</option>
-                            <option value="_">Underscore _</option>
+                            <option value="-">Hyphen - (I like kebabs)</option>
+                            <option value="_">Underscore _ (I like snakes...?)</option>
                         </select>
                     </div>
                 </div>
@@ -73,8 +72,9 @@
         </fieldset>
     </div>
 
-    <div id="success-notification"></div>
-
+    <div id="success-notification-container">
+        <div id="success-notification"></div>
+    </div>
 
     <script src="clipboard.min.js"></script>
     <script src="jquery-3.6.1.min.js"></script>
@@ -109,8 +109,8 @@
 
         function showSuccessNotification() {
             clearTimeout(hideTimer);
-            $('#success-notification').fadeIn();
-            hideTimer = setTimeout(function () { $('#success-notification').fadeOut(); }, 3000);
+            $('#success-notification-container').css('display', 'flex').hide().fadeIn();
+            hideTimer = setTimeout(function () { $('#success-notification-container').fadeOut(); }, 3000);
         }
 
         let adjective;
@@ -147,7 +147,7 @@
             
             $('#username').html(username);
             $('.copy-button').attr('data-clipboard-text', username);
-            $('#success-notification').html(`✅ <code>${username}</code> copied!`)
+            $('#success-notification').html(`✅ <span class='success-notification-name'>${username}</span> copied!`)
         }
 
         function camelCaseWord(words) {

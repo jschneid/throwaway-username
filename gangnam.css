@@ -60,21 +60,29 @@ body
     background-color: #343741;
 }
 
-#success-notification {
-    font-family: "Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji","Arial Unicode MS","Arial Unicode",Times,Symbola,Aegyptus,Code2000,Code2001,Code2002,Musica,serif;
-    font-size: 24px;
+#success-notification-container {
     display: none;
-    min-width: 150px;
-    margin-left: -75px; /* half of min-width */
+
+    width:100%;
+    /* display: flex; */
+    justify-content: center;
+
+    position: absolute;
+    bottom: 40px;
+}
+
+#success-notification {
+    font-size: 20px;
     background-color: #333333;
     color: #fff;
     text-align: center;
     border-radius: 4px;
     padding: 16px;
-    position: fixed;
-    left: 50%;
-    bottom: 40px;
     z-index: 2000; /* Above the footer */
+}
+
+.success-notification-name {
+    color: #3DA0BF;
 }
 
 .centered
