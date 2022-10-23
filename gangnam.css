@@ -26,6 +26,11 @@ body
     height: 100px;
 }
 
+.subtitle
+{
+    font-style: italic;
+}
+
 .emoji
 {
     font-size: 20px;
@@ -35,7 +40,7 @@ body
 {
     background-size: cover;
     background-position: center;
-    background-image: url('spiral_oval.png');
+    background-image: url('spiral_oval_teal_25a.png');
     padding: 999px;
     margin: -999px; /* allow background image to exceed div bounds */
     background-size: 2200px;
@@ -81,4 +86,9 @@ body
 {
     max-width: 900px;
     margin: 0 auto;
+}
+
+legend
+{
+    font-variant: small-caps;
 }
