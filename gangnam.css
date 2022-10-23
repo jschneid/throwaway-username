@@ -54,6 +54,13 @@ body
     background-color: #1D809F;
 }
 
+@media (max-width: 576px) {
+    #copy-button
+    {
+        font-size: 20px;
+    }
+}
+
 #switch-button
 {
     color: #fafdff;
