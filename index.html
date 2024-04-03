@@ -19,7 +19,7 @@
 
     Have a great day! :-)
 
-    Source code written by Jonathan Schneider and copyright 2022 Aggro Magnet Games LLC.
+    Source code written by Jonathan Schneider and copyright 2024 Aggro Magnet Games LLC.
 -->
 
 <body>
@@ -49,10 +49,10 @@
         </p>
     </div>
     <div>
-        <fieldset class="border border-dark border-2 p-2 constrain-width">
+        <fieldset class="border border-dark border-2 p-2 constrain-width text-center">
             <legend class="float-none w-auto p-2">Options</legend>
-            <div class="row">
-                <div class="col-sm-6">
+            <div class="row" style="margin-top: -20px">
+                <div class="col-lg-4 mb-1">
                     Include "Throwaway":
                     <select id="throwaway">
                         <option value="none">Nowhere at all</option>
@@ -60,12 +60,25 @@
                         <option value="suffix">At the end</option>
                     </select>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-lg-5 mb-1">
                     Word Separator: 
                     <select id="separator">
-                        <option value="">None, smash it all together</option>
+                        <option value="">None: smashItAllTogether</option>
                         <option value="-">Hyphen - (I like kebabs)</option>
                         <option value="_">Underscore _ (I like snakes...?)</option>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    Random Digits: 
+                    <select id="random-digits">
+                        <option value="0">0</option>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
                     </select>
                 </div>
             </div>
